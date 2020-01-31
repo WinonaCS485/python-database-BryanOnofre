@@ -8,10 +8,13 @@ connection = pymysql.connect(host='mrbartucz.com',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
+# userInput = 'Kami'
+userInput = input("Enter Name: ")
+
 try:
     with connection.cursor() as cursor:
         # Select all Students
-        sql = "SELECT * from Students"
+        sql = " SELECT * from Students WHERE fName =  " + "'" + userInput  + "'"
         
         # execute the SQL command
         cursor.execute(sql)
